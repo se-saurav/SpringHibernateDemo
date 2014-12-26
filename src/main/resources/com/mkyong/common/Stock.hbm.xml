@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.mkyong.common.Stock" table="stock">
+        <id name="stockId" type="java.lang.Integer">
+            <column name="STOCK_ID" />
+
+        </id>
+        <property name="stockCode" type="string">
+            <column name="STOCK_CODE" length="10" />
+        </property>
+        <property name="stockName" type="string">
+            <column name="STOCK_NAME" length="20" />
+        </property>
+    </class>
+
+    <class name="com.mkyong.common.Address" table="address">
+        <id name="id" type="java.lang.Integer" >
+            <column name="id" />
+            <generator class="native"/>
+        </id>
+        <property name="city" type="string">
+            <column name="city" length="10" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="10" />
+        </property>
+    </class>
+
+    <class name="com.mkyong.common.Person" table="person">
+        <id name="id" type="java.lang.Integer" >
+            <column name="id" />
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="10" />
+        </property>
+        <many-to-one name="address" cascade="all"></many-to-one>
+    </class>
+</hibernate-mapping>
